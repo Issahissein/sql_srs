@@ -5,7 +5,7 @@ import duckdb
 
 
 con = duckdb.connect(
-    database="data/exercises_sql_tables.duckdb",
+    database="data/exercises.sql_tables.duckdb",
     read_only=False
 )
 

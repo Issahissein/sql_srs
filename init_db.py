@@ -1,9 +1,10 @@
 import io
 import pandas as pd
 import duckdb
-
-con = duckdb.connect(database="data/exercises_sql_tables.duckdb", read_only=False)
-
+con = duckdb.connect(
+    database="data/exercises_sql_tables.duckdb",
+    read_only=False
+)
 # ------------------------------------------------------------
 # EXERCISES LIST
 # ------------------------------------------------------------
