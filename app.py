@@ -41,13 +41,12 @@ exercise = (
     )
     .df()
     .sort_values("last_reviewed")
-    .reset_index(drop=True)
 )
 
 st.write(exercise)
 
 
-exercise_name = exercise.loc[0, "exercise_name"]
+exercise_name = exercise.iloc[0]["exercise_name"]
 
 with open(f"answers/{exercise_name}.sql", "r") as f:
     answer = f.read()
@@ -83,12 +82,13 @@ if query:
 tab2, tab3 = st.tabs(("Tables", "Solution"))
 
 with tab2:
-    exercise_tables = exercise.loc[0, "tables"]
+    exercise_tables = exercise.iloc[0]["tables"]
 
     for table in exercise_tables:
         st.write(f"table: {table}")
         df_table = con.execute(f"SELECT * FROM {table}").df()
         st.dataframe(df_table)
+
 
 with tab3:
     st.write(answer)
